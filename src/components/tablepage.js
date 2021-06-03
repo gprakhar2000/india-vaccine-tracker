@@ -10,8 +10,8 @@ const Tablepage = (props) => {
     // const [pincode, setPincode] = useState('')
 
     let today = new Date();
-    let date = today.getDate()
-    let month = today.getMonth() + 1
+    let date = ('0' + today.getDate()).slice(-2)
+    let month = ('0' + (today.getMonth() + 1)).slice(-2)
     let year = today.getFullYear()
     let todayDate = `${date}-${month}-${year}`
     const [dateVal, setDate] = useState(todayDate)
@@ -24,6 +24,7 @@ const Tablepage = (props) => {
                     setCenter(result.centers);
                 }
             )
+        console.log(dateVal)
 
     }
     useEffect(() => {
@@ -35,7 +36,7 @@ const Tablepage = (props) => {
     //     setPincode(searchsession)
     //     console.log(searchsession)
     // }
-    const refresh=()=>{
+    const refresh = () => {
         window.location.reload()
     }
     return (
@@ -57,24 +58,28 @@ const Tablepage = (props) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {centers.map((center, index) => (
-                            <tr>
+                        {Object.keys(centers).length === 0 ? <tr><th>No centers available now!</th><th>Check back later or try different pincode</th></tr> :
+                            centers.map((center, index) => (
+                                <tr>
 
-                                <th className="w-25">{center.name}<br /><span className="font-weight-lighter">{center.address}</span></th>
-                                <td>
-                                    {center.sessions.map((session, index) => (
-                                        <td><tr className="" ><span className="badge badge-secondary m-1 p-2">{session.date}</span></tr>
-                                            <tr className="d-flex" ><span className="badge badge-primary m-1 p-2">{session.vaccine}</span><span className="badge badge-dark m-1 p-2">Age-{session.min_age_limit}+</span></tr>
-                                            <tr>{session.available_capacity_dose1 > 0 ? <div className="d-flex"><button className="btn btn-success m-1 p-1">Dose1-{session.available_capacity_dose1}</button><a href="https://selfregistration.cowin.gov.in/" target="_blank" className="btn btn-warning m-1 p-1">Book Slot</a></div> : <button className="btn btn-danger m-1 p-1">Dose1 :{session.available_capacity_dose1}</button>}
-                                                {session.available_capacity_dose2 > 0 ? <div className="d-flex"><button className="btn btn-success m-1 p-1">Dose2-{session.available_capacity_dose2}</button><a href="https://selfregistration.cowin.gov.in/" target="_blank" className="btn btn-warning m-1 p-1">Book Slot</a></div> : <button className="btn btn-danger m-1 p-1">Dose2 :{session.available_capacity_dose2}</button>}
-                                            </tr>
-                                        </td>
-                                    ))}
-                                </td>
+                                    <th className="w-25">{center.name}<br /><span className="font-weight-lighter">{center.address}</span></th>
+                                    <td>
+                                        {center.sessions.map((session, index) => (
+                                            <td><tr className="" ><span className="badge badge-secondary m-1 p-2">{session.date}</span></tr>
+                                                <tr className="d-flex" ><span className="badge badge-primary m-1 p-2">{session.vaccine}</span><span className="badge badge-dark m-1 p-2">Age-{session.min_age_limit}+</span></tr>
+                                                <tr>{session.available_capacity_dose1 > 0 ? <div className="d-flex"><button className="btn btn-success m-1 p-1">Dose1-{session.available_capacity_dose1}</button><a href="https://selfregistration.cowin.gov.in/" target="_blank" className="btn btn-warning m-1 p-1">Book Slot</a></div> : <button className="btn btn-danger m-1 p-1">Dose1 :{session.available_capacity_dose1}</button>}
+                                                    {session.available_capacity_dose2 > 0 ? <div className="d-flex"><button className="btn btn-success m-1 p-1">Dose2-{session.available_capacity_dose2}</button><a href="https://selfregistration.cowin.gov.in/" target="_blank" className="btn btn-warning m-1 p-1">Book Slot</a></div> : <button className="btn btn-danger m-1 p-1">Dose2 :{session.available_capacity_dose2}</button>}
+                                                </tr>
+                                            </td>
+                                        ))}
+                                    </td>
 
 
-                            </tr>
-                        ))}
+                                </tr>
+                            ))
+                            
+                        }
+
                     </tbody>
                 </table>
             </div>
