@@ -64,7 +64,8 @@ const Tablepage = (props) => {
                             centers.map((center, index) => (
                                 <tr>
 
-                                    <th className="w-25">{center.name}<br /><span className="font-weight-lighter">{center.address}</span></th>
+                                    <th className="w-25">{center.name}<br/>
+                                        <span className="font-weight-lighter">{center.address}, <span>{center.district_name}, {center.state_name}</span><br/> </span><span class="badge rounded-pill bg-info text-dark ml-1">{center.fee_type}</span></th>
                                     <td>
                                         {center.sessions.map((session, index) => (
                                             <td><tr className="" ><span className="badge badge-secondary m-1 p-2">{session.date}</span></tr>
