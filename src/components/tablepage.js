@@ -49,12 +49,14 @@ const Tablepage = (props) => {
                     <button className="btn btn-danger mr-1 mt-2 mb-2 p-1">NOT AVAILABLE</button>
                     <button className="btn btn-success mr-1 mt-2 mb-2 p-1">AVAILABLE</button>
                 </div>
+                <div class="d-inline-block alert alert-info" role="alert">
+                    Showing results for pincode-<span class="badge bg-light text-dark">{props.pincode}</span>
+                </div>
                 <table className="table border shadow table-bordered table-hover table-responsive">
                     <thead className="thead-dark">
                         <tr>
                             <th >Centre Name</th>
                             <th >Availability</th>
-
                         </tr>
                     </thead>
                     <tbody>
@@ -77,7 +79,7 @@ const Tablepage = (props) => {
 
                                 </tr>
                             ))
-                            
+
                         }
 
                     </tbody>
