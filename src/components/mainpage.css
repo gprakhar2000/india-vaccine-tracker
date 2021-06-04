@@ -1,13 +1,19 @@
 body{
     overflow-x: hidden;
 }
-#mainpageDiv{
-    margin-top: 20%;
-    margin-bottom: 20%;
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%); */
+.flag{
+    width:100vw;
+    height: 100vh;
+}
+.stripe{
+    height: 33.33%;
+    box-sizing: border-box;
+}
+.saffron{
+    background-color: #ff9933;
+}
+.green{
+    background-color: #138808;
 }
 button,a{
     white-space: nowrap;
@@ -20,15 +26,68 @@ button,a{
 #headingdiv{
     width: auto;
 }
+#pehlacol{
+    white-space: nowrap;
+    overflow: hidden;
+}
+#img2{
+    border-radius: 3em;
+    height: 12em;
+    width:60%;
+    top:0;
+    right:0;
+}
+#pincode{
+    margin-left: 4px;
+    margin-top:8px;
+    margin-bottom:8px;
+    padding:8px;
+}
+#submit{
+    margin-left: 4px;
+    margin-top:8px;
+    margin-bottom:12px;
+    padding:8px;
+}
 @media screen and (max-width:992px) {
-    #mainpageDiv{
-        
-        margin-top: 50%;
-        
-        
-        /* position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%); */
+    
+    #img2{
+        border-radius: 1.5em;
+        height: 6em;
+        width: 39%;
+
+    }    
+}
+@media screen and (max-width:400px) {
+    
+    #img2{
+        border-radius: 1.5em;
+        height: 5em;
+        width: 45%;
+
     }
+}
+@media screen and (max-height:500px) {
+    
+    #img2{
+        border-radius: 1.5em;
+        height: 5em;
+        width: 40%;
+
+    }
+    #image{
+        width: 4em;
+        height: 2em;
+    }
+    #pincode{
+        
+        margin-top:1px;
+        
+    }
+    #submit{
+        margin-bottom:6px;
+        margin-top:0;
+        
+    }
+
 }
